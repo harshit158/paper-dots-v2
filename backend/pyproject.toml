@@ -5,7 +5,10 @@ description = "An end-to-end research paper management system for students"
 authors = [
     { name = "Harshit Sharma", email = "harshit158@gmail.com" }
 ]
-dependencies = []
+dependencies = [
+    "pymupdf>=1.25.1",
+    "ipykernel>=6.29.5",
+]
 readme = "README.md"
 requires-python = ">= 3.8"
 
