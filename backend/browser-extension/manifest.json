@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Paper Dots",
+    "version": "1.0",
+    "description": "Helps in opening arxiv papers in new tabs with annotations",
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["<all_urls>"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://arxiv.org/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }

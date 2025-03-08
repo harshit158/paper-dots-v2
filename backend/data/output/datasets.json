@@ -1,48 +1,44 @@
 {
-    "https://arxiv.org/pdf/1912.13318-2": [
-        "LayoutLMLARGE",
-        "LayoutLM",
-        "receipt understanding",
-        "Visual Genome",
-        "IIT-CDIP Test Collection",
-        "IIT-CDIP Test Collection 1.0",
-        "Document Image Classification",
-        "Table 3",
-        "Receipt Understanding",
-        "LayoutLMBASE",
-        "SROIE",
-        "BERTLARGE",
-        "IIT-CDIP Test Collection 1.02",
-        "document image classification",
-        "RVL-CDIP",
-        "RoBERTaBASE",
-        "RoBERTaLARGE",
-        "form understanding",
-        "BERTBASE",
-        "FUNSD",
-        "Form Understanding"
+    "https://arxiv.org/pdf/2501.10120": [
+        "AutoScholarQuery",
+        "RealScholarQuery"
     ],
     "https://arxiv.org/pdf/1912.13318": [
-        "Form Understanding",
-        "FUNSD",
-        "Document Image Classification",
-        "RoBERTaBASE",
-        "Receipt Understanding",
-        "SROIE",
-        "LayoutLMLARGE",
-        "BERTBASE",
-        "LayoutLMBASE",
-        "RVL-CDIP",
-        "SROIE dataset",
-        "IIT-CDIP Test Collection 1.0",
-        "FUNSD dataset",
-        "Visual Genome",
         "RVL-CDIP dataset",
-        "LayoutLM",
-        "IIT-CDIP Test Collection 1.02",
+        "The FUNSD Dataset",
+        "SROIE dataset4",
+        "FUNSD dataset",
+        "SROIE dataset",
+        "SROIE",
+        "The SROIE Dataset",
         "IIT-CDIP Test Collection",
-        "RVL-CDIP Dataset",
-        "RoBERTaLARGE",
-        "BERTLARGE"
+        "Visual Genome dataset",
+        "The RVL-CDIP Dataset",
+        "FUNSD"
+    ],
+    "https://arxiv.org/pdf/2302.04761": [
+        "DATESET",
+        "TEMPLAMA",
+        "CCNet",
+        "C\u2217",
+        "WikiText",
+        "Web Questions",
+        "Natural Questions",
+        "TriviaQA"
+    ],
+    "https://arxiv.org/pdf/2302.08582": [],
+    "https://arxiv.org/pdf/2401.02385": [
+        "StarCoder",
+        "SlimPajama"
+    ],
+    "https://arxiv.org/pdf/2401.10020": [
+        "AIFT(M2)",
+        "Alpaca dataset",
+        "IFT test data",
+        "M1",
+        "Open Assistant dataset"
+    ],
+    "https://arxiv.org/pdf/2310.06825": [
+        "Mistral 7B"
     ]
 }
