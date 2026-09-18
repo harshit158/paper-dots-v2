@@ -169,3 +169,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# PaperDots local data
+data/
+*.db
+*.db-journal
+
+# Streamlit local secrets
+.streamlit/secrets.toml
+.DS_Store
