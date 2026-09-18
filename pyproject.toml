@@ -8,6 +8,7 @@ dependencies = [
     "pydantic-settings>=2.15.0",
     "sqlmodel>=0.0.42",
     "streamlit>=1.64.0",
+    "streamlit-pdf>=2.0.1",
     "foundry @ git+https://github.com/harshit158/foundry.git@main"
 ]
 

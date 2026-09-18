@@ -35,6 +35,6 @@ class Settings(BaseSettings):
     papers_path: Path = DEFAULT_PAPERS_PATH
     page_title: str = "PaperDots"
     page_icon: str = "📄"
-    layout: Literal["centered", "wide"] = "centered"
+    layout: Literal["centered", "wide"] = "wide"
     tagline: str = "Read papers. Capture ideas. Connect knowledge."
     app_name: str = "paperdots"
