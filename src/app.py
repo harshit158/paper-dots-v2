@@ -15,7 +15,10 @@ from db import Database
 from repository import PaperRepository
 from services import PaperService
 from settings import Settings
-from ui.views import MainPage
+from ui.common import PAGE_FEED, PAGE_LIBRARY, PAGE_READER, Navigator
+from ui.feed import FeedView
+from ui.library import LibraryView
+from ui.reader import ReaderView
 
 settings = Settings()
 config = ObservabilityConfig(app_name=settings.app_name)
@@ -40,14 +43,43 @@ def get_database(path: str) -> Database:
     return database
 
 
-def build_page(settings: Settings) -> MainPage:
-    """Compose the object graph for one rerun.
+def build_pages(settings: Settings) -> list[st.Page]:
+    """Compose the object graph and the navigation for one rerun.
 
     Cheap to call every time: the expensive part (the engine) comes from the
     cache, and everything else is a thin wrapper around it.
+
+    ``st.navigation`` must be called from the entrypoint, so the pages are
+    built here and handed back rather than assembled inside a view. The
+    navigator is registered with them so a view can switch pages by name.
     """
     database = get_database(str(settings.db_path))
-    return MainPage(PaperService(PaperRepository(database)), settings.papers_path)
+    papers = PaperService(PaperRepository(database))
+    navigator = Navigator()
+
+    feed_page = st.Page(
+        FeedView().render,
+        title="Feed",
+        icon=":material/dynamic_feed:",
+        url_path=PAGE_FEED,
+        default=True,
+    )
+    reader_page = st.Page(
+        ReaderView(papers, settings.papers_path, navigator).render,
+        title="Reader",
+        icon=":material/menu_book:",
+        url_path=PAGE_READER,
+    )
+    library_page = st.Page(
+        LibraryView(papers, navigator).render,
+        title="Library",
+        icon=":material/library_books:",
+        url_path=PAGE_LIBRARY,
+    )
+
+    navigator.register(PAGE_READER, reader_page)
+    navigator.register(PAGE_LIBRARY, library_page)
+    return [feed_page, reader_page, library_page]
 
 
 def main() -> None:
@@ -63,7 +95,9 @@ def main() -> None:
         layout=settings.layout,
     )
 
-    build_page(settings).render(settings.page_title, settings.tagline)
+    st.title(settings.page_title)
+    st.caption(settings.tagline)
+    st.navigation(build_pages(settings)).run()
 
 
 # Streamlit re-executes this module on every interaction, so the call is

@@ -33,7 +33,9 @@ class ArxivClient:
     def normalize_url(self, url: str) -> tuple[str, str]:
         parsed = urlparse(url.strip())
         if parsed.scheme != "https" or parsed.hostname not in ARXIV_HOSTS:
-            raise ValidationError("Enter an HTTPS arXiv URL, such as https://arxiv.org/abs/1706.03762.")
+            raise ValidationError(
+                "Enter an HTTPS arXiv URL, such as https://arxiv.org/abs/1706.03762."
+            )
 
         match = re.fullmatch(r"/(?:abs|pdf)/([^/?#]+?)(?:\.pdf)?", parsed.path)
         if match is None:
